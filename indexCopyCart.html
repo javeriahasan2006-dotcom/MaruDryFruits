@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MaruDryFruits</title>
+  <link rel="icon" href="logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Butler";
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #fffaf5;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* ---- HEADER -- NAVBAR ---- */
+    header {
+      position: sticky;
+      top: 0;
+      background: #a0522d;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+      transition: background 0.3s, padding 0.3s;
+    }
+
+    header.scrolled {
+      background: #a0522d;
+      padding: 10px 50px;
+      backdrop-filter: blur(6px);
+    }
+
+    header h1 {
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1.8em;
+      font-weight: 700;
+    }
+
+    .icon {
+      padding: 23px;
+    }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: rgba(203, 180, 180, 0.95);
+    }
+
+    .navbar {
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background-color: #8b4513 !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-toggler {
+      filter: invert(1);
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+    .navbar-nav .nav-link {
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #f1c27d !important;
+    }
+
+    /* ---- HERO SECTION ---- */
+    .hero {
+      background: url('background (2).jpg') center/cover no-repeat;
+      height: 85vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      animation: fadeInUp 1.5s ease forwards;
+    }
+
+    .hero h2 {
+      font-size: 2.8em;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #a0522d;
+      padding: 12px 25px;
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #8b4513;
+      color: white;
+    }
+
+    /* ---- cart ---- */
+    .toast-message {
+      background-color: #a0522d;
+      color: white;
+      padding: 15px 20px;
+      margin-top: 10px;
+      border-radius: 8px;
+      min-width: 220px;
+      box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+      animation: fadeSlideIn 0.5s ease forwards, fadeOut 0.5s ease 2s forwards;
+      font-family: "Butler";
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+
+    /* ---- ABOUT SECTION ---- */
+    .aboutt-banner {
+      background: url('aboutBanner.jpg') center/cover no-repeat;
+      height: 40vh;
+      position: relative;
+      border-radius: 10px;
+      margin-bottom: 60px;
+    }
+
+    .aboutt-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      border-radius: 10px;
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .aboutt-body {
+      text-align: center;
+    }
+
+    .aboutt {
+      transform: translateY(10px);
+      animation: slideUp 1s forwards;
+      display: flex;
+      justify-content: center;
+      box-shadow: 20px;
+    }
+
+    .about {
+      padding: 60px 60px;
+      text-align: center;
+      background-color: #fff;
+      animation: fadeIn 1.2s ease-in-out forwards;
+    }
+
+    .about h2 {
+      color: #a0522d;
+      margin-bottom: 20px;
+      font-size: 3em;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.7;
+      color: #555;
+    }
+
+    /* ---- REVIEWS ---- */
+    .carr {
+      width: 100%;
+      height: 50%;
+    }
+
+    .captionn {
+      color: #8b4513;
+    }
+
+    .container {
+      border-radius: 50px;
+    }
+
+    /* ---- CHOCOLATES ---- */
+
+    .chocolate-banner {
+      background: url('chocolateBanner2.jpg') center/cover no-repeat;
+      height: 40vh;
+      position: relative;
+      border-radius: 10px;
+      margin-bottom: 60px;
+    }
+
+    .chocolate-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      border-radius: 10px;
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .chocolate-body {
+      text-align: center;
+    }
+
+    .chocolate {
+      transform: translateY(10px);
+      animation: slideUp 1s forwards;
+      display: flex;
+      justify-content: center;
+      box-shadow: 20px;
+    }
+
+    .chocolates .row {
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .chocolate-img {
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .chocolate h5 {
+      color: #a0522d;
+    }
+
+    .chocolate:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.11);
+      border-radius: 10px;
+    }
+
+    /* ---- BEST SELLERS ---- */
+    .dryFruit-banner {
+      background: url('dryfruitsBanner.webp') center/cover no-repeat;
+      height: 40vh;
+      position: relative;
+      border-radius: 10px;
+      margin-bottom: 60px;
+    }
+
+    .dryFruit-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      border-radius: 10px;
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .dryFruit-body {
+      text-align: center;
+    }
+
+    .dryFruit {
+      transform: translateY(10px);
+      animation: slideUp 1s forwards;
+      display: flex;
+      justify-content: center;
+      box-shadow: 20px;
+    }
+
+    .dryFruit .row {
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .dryFruit-img {
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .dryFruit h5 {
+      color: #a0522d;
+    }
+
+    .dryFruit:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.11);
+      border-radius: 10px;
+    }
+
+    /* -------- SALE ------- */
+    .sale-banner {
+      background: url('saleBanner.webp') center/cover no-repeat;
+      height: 40vh;
+      position: relative;
+      border-radius: 10px;
+      margin-bottom: 60px;
+    }
+
+    .sale-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      border-radius: 10px;
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .price {
+      font-weight: bold;
+      color: #a0522d;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      background-color: #b45f06;
+      color: white;
+    }
+
+    .btn:hover {
+      background-color: #8a4604;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      color: #7b4f28;
+    }
+
+    h4 {
+      color: black;
+    }
+
+    .textt {
+      margin-bottom: 200px;
+    }
+
+    .giftpack-body {
+      text-align: center;
+    }
+
+    .giftpack {
+      transform: translateY(10px);
+      animation: slideUp 1s forwards;
+      display: flex;
+      justify-content: center;
+      box-shadow: 20px;
+    }
+
+    .giftpack .row {
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .giftpack-img {
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .giftpack h5 {
+      color: #a0522d;
+    }
+
+    .card-img-top {
+      border-radius: 10px;
+    }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      background: #a0522d;
+      color: #eee;
+      padding: 60px 0 20px;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 0 20px;
+    }
+
+    .footer-col {
+      flex: 1 1 220px;
+    }
+
+    .footer-col h1 {
+      color: #fff;
+      margin-bottom: 15px;
+      font-size: 18px;
+      text-align: left;
+    }
+
+    .footer-col p,
+    .footer-col ul li {
+      font-size: 14px;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-col ul li a {
+      color: #ccc;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+
+    .footer-col ul li a:hover {
+      color: #fff;
+    }
+
+    .social-links a {
+      display: inline-block;
+      height: 35px;
+      width: 35px;
+      background: #fff;
+      color: #a0522d;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 35px;
+      margin-right: 8px;
+      transition: 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: brown;
+      color: #fff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #e0e3e9;
+      margin-top: 30px;
+      padding-top: 15px;
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .social-links {
+        justify-content: center;
+      }
+    }
+
+
+    /* ---- ANIMATIONS ---- */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ---- RESPONSIVE ---- */
+
+    @media (max-width: 991px) {
+      .navbar-collapse {
+        background-color: #a0522d;
+        border-radius: 0 0 10px 10px;
+        padding: 10px 20px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        flex-direction: column;
+      }
+
+      header {
+        padding: 15px 30px;
+      }
+
+      .hero p {
+        font-size: 1em;
+        padding: 10px;
+      }
+
+      .hero h2 {
+        font-size: 2.2em;
+      }
+
+      .product-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .about,
+      .products {
+        padding: 60px 20px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      nav {
+        flex-direction: column;
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      .hero p {
+        font-size: 1em;
+        padding: 10px;
+      }
+
+      .btn {
+        padding: 10px 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .chocolate-banner {
+        height: 30vh;
+      }
+
+      .banner-content h2 {
+        font-size: 1.8em;
+      }
+
+      .banner-content p {
+        font-size: 1em;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .dryFruit-banner {
+        height: 30vh;
+      }
+
+      .banner-content h2 {
+        font-size: 1.8em;
+      }
+
+      .banner-content p {
+        font-size: 1em;
+      }
+    }
+
+    @media screen and (orientation: portrait) {
+      header.scrolled {
+        flex-direction: column;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ---- NAV BAR ---- -->
+  <header id="navbar" class="navbar navbar-expand-lg sticky-top" style="background-color: #a0522d;">
+    <div class="container-fluid px-4">
+      <!-- Brand -->
+      <a class="navbar-brand fw-bold text-white" href="#home" style="font-size: 1.8em;">MaruDryFruits</a>
+
+      <!-- Hamburger Button -->
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible Menu -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link text-white fw-semibold" href="#home">
+              <i class="fa-solid fa-house me-2"></i>Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white fw-semibold" href="dryFruits.html">
+              <i class="fa-solid fa-cart-shopping me-2"></i>Dry Fruits
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white fw-semibold" href="aboutUs.html">
+              <i class="fa-solid fa-seedling me-2"></i>About Us
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white fw-semibold" href="offers.html">
+              <i class="fa-solid fa-gift me-2"></i>Offers
+            </a>
+          </li>
+          <!-- ---- cart ---- -->
+          <li class="nav-item position-relative">
+            <a class="nav-link text-white fw-semibold" href="cart.html" id="cartBtn">
+              <i class="fa-solid fa-cart-shopping me-2"></i>
+              Cart
+              <span id="cartCount"
+                class="badge rounded-pill bg-warning text-dark position-absolute top-0 start-100 translate-middle"
+                style="font-size: 0.75em;">0</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-white fw-semibold" href="contactUs.html">
+              <i class="fa-solid fa-map-location-dot me-2"></i>Contact Us
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- ---- HERO SECTION ---- -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h2>Premium Dry Fruits for a Healthier You</h2>
+      <p>Handpicked, natural, and packed with nutrition.
+        Discover the goodness of nature.</p>
+      <a href="dryFruits.html" class="btn">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- ---- ABOUT ---- -->
+  <section class="aboutt py-5" style="background-color:#fff;">
+    <div class="container text-center">
+
+      <!-- About Banner -->
+      <div class="aboutt-banner d-flex align-items-center justify-content-center text-center">
+        <div class="banner-content">
+          <h2 class="fw-bold text-white">At MaruDryFruits</h2>
+          <p class="text-white-50 fs-5 mt-2">Handled with passion, purity, and perfection.</p>
+        </div>
+      </div>
+
+      <p>
+      <blockquote>At MaruDryFruits, we’re passionate about bringing you the finest, freshest, and most flavorful dry
+        fruits straight from trusted farms. Every almond, cashew, and raisin we offer is carefully handpicked, ensuring
+        that you enjoy only the best quality and natural goodness in every pack. <br>
+
+        Our goal is simple, to make healthy snacking both delicious and effortless. We believe that great taste and
+        great health go hand in hand, which is why our dry fruits are sourced, processed, and packed with the utmost
+        care to preserve their freshness and nutrients. <br>
+
+        Dry fruits are true powerhouses of nutrition; rich in vitamins, minerals, antioxidants, and healthy fats. From
+        the crunch of premium almonds and the buttery smoothness of cashews to the sweetness of raisins and dates, every
+        variety offers its own unique flavor and benefits. <br>
+
+        Enjoy them as a quick energy boost, mix them into your breakfast, or share them with loved ones, our dry fruits
+        fit perfectly into every lifestyle. At MaruDryFruits, we’re here to help you snack smarter, live healthier, and
+        feel your best every day.
+      </blockquote>
+      </p>
+  </section>
+
+  <!-- ---- REVIEWS ---- -->
+  <section class="py-5" id="reviews" style="background-color:#fffaf5;">
+    <div class="container text-center">
+      <h2 class="mb-5 fw-bold" style="color:#a0522d;">Customer Reviews</h2>
+
+      <div class="review-slider position-relative mx-auto" id="slider"
+        style="max-width:700px; overflow:hidden; border-radius:15px; background:#fff; box-shadow:0 6px 15px rgba(0,0,0,0.1);">
+        <div class="reviews d-flex transition-all" style="transition: transform 0.6s ease-in-out;">
+          <!-- Review 1 -->
+          <div class="review-card flex-shrink-0 w-100 p-4">
+            <img src="review1.jpg" alt="Customer 1" class="rounded-circle mb-3"
+              style="width:80px; height:80px; object-fit:cover; border:3px solid #f4b942;">
+            <h5 class="fw-bold" style="color:#a0522d;">Sarah</h5>
+            <div class="stars text-warning fs-5">⭐⭐⭐⭐⭐</div>
+            <p class="mt-3 mb-2" style="color:#555;">"Best dry fruits I’ve ever had! The almonds are super crunchy and
+              fresh. Delivery was quick and the packaging was elegant."</p>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="review-card flex-shrink-0 w-100 p-4">
+            <img src="review2.jpg" alt="Customer 2" class="rounded-circle mb-3"
+              style="width:80px; height:80px; object-fit:cover; border:3px solid #f4b942;">
+            <h5 class="fw-bold" style="color:#a0522d;">Harry</h5>
+            <div class="stars text-warning fs-5">⭐⭐⭐⭐⭐</div>
+            <p class="mt-3 mb-2" style="color:#555;">"Love their roasted cashews and raisins! Perfect for gifting and
+              snacking. You can taste the premium quality in every bite."</p>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="review-card flex-shrink-0 w-100 p-4">
+            <img src="review3.jpg" alt="Customer 3" class="rounded-circle mb-3"
+              style="width:80px; height:80px; object-fit:cover; border:3px solid #f4b942;">
+            <h5 class="fw-bold" style="color:#a0522d;">Dex</h5>
+            <div class="stars text-warning fs-5">⭐⭐⭐⭐⭐</div>
+            <p class="mt-3 mb-2" style="color:#555;">"Healthy, tasty, and beautifully packed. I subscribed for their
+              monthly box, totally worth it!"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---- CHOCOLATE VARIETIES SECTION ---- -->
+  <section class="chocolates py-5" id="chocolates" style="background-color:#fff;">
+    <div class="container text-center">
+
+      <!-- Chocolate Banner -->
+      <div class="chocolate-banner d-flex align-items-center justify-content-center text-center">
+        <div class="banner-content">
+          <h2 class="fw-bold text-white">Our Chocolate Varieties</h2>
+          <p class="text-white-50 fs-5 mt-2">Crafted with passion, purity, and perfection.</p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="chocolate col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm">
+              <img src="darkChocolate.jpg" class="card-img-top" alt="Dark Chocolate">
+              <div class="card-body">
+                <h4 class="card-title text-center" style="color:#a0522d;">Dark Chocolate</h4>
+                <p class="card-text text-muted">“Experience the bold richness of pure dark chocolate, a perfect balance
+                  of deep flavor and timeless indulgence.”
+                </p>
+                <a href="dryFruits.html" class="btn">Show More</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="chocolate col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm">
+              <img src="milkChocolate.jpg" class="card-img-top" alt="Milk Chocolate">
+              <div class="card-body">
+                <h4 class="card-title text-center" style="color:#a0522d;">Milk Chocolate</h4>
+                <p class="card-text text-muted">“Savor the creamy sweetness of smooth milk chocolate, a delightful
+                  harmony of comfort, flavor, and pure joy.”</p>
+                <a href="dryFruits.html" class="btn">Show More</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="chocolate col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm">
+              <img src="whiteChocolate.jpg" class="card-img-top" alt="White Chocolate">
+              <div class="card-body">
+                <h4 class="card-title text-center" style="color:#a0522d;">White Chocolate</h4>
+                <p class="card-text text-muted">“Delight in the silky sweetness of pure white chocolate, a luxurious
+                  blend of smooth texture and irresistible flavor.”</p>
+                <a href="dryFruits.html" class="btn">Show More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---- BEST SELLER SECTION ---- -->
+  <section class="dryFruit py-5" id="chocolates" style="background-color:#fff;">
+    <div class="container text-center">
+
+      <!-- Banner -->
+      <div class="dryFruit-banner d-flex align-items-center justify-content-center text-center">
+        <div class="banner-content">
+          <h2 class="fw-bold text-white">Our Best Sellers</h2>
+          <p class="text-white-50 fs-5 mt-2">Discover our best sellers, customer favorites loved for their quality and
+            taste.</p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="dryFruit col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm">
+              <img src="raisins.jpg" class="card-img-top" height="192px" alt="Raisins">
+              <div class="card-body">
+                <h4 class="card-title text-center" style="color:#a0522d;">Raisins</h4>
+                <p class="card-text text-muted">“Indulge in the sweet, juicy flavor of our premium raisins, perfectly
+                  sun-dried, naturally chewy, and packed with wholesome energy in every bite.”
+                </p>
+                <a href="dryFruits.html" class="btn">Show More</a>
+                <!-- <button class="btn mt-2" onclick="addToCart('Raisins', 350, 'raisins.jpg')">Add to Cart</button> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="dryFruit col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm">
+              <img src="cashews.jpg" class="card-img-top" alt="Cashews">
+              <div class="card-body">
+                <h4 class="card-title text-center" style="color:#a0522d;">Cashews</h4>
+                <p class="card-text text-muted">“Indulge in the rich, buttery flavor of our premium cashews, perfectly
+                  roasted, irresistibly crunchy, and packed with wholesome goodness in every bite.”</p>
+                <a href="dryFruits.html" class="btn">Show More</a>
+                <!-- <button class="btn mt-2" onclick="addToCart('Cashews', 350, 'cashews.jpg')">Add to Cart</button> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="dryFruit col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm">
+              <img src="almonds1.jpg" class="card-img-top" alt="Almonds">
+              <div class="card-body">
+                <h4 class="card-title text-center" style="color:#a0522d;">Almonds</h4>
+                <p class="card-text text-muted">“Indulge in the crisp, nutty flavor of our premium almonds, perfectly
+                  roasted and packed with wholesome nutrients in every bite.”</p>
+                <a href="dryFruits.html" class="btn">Show More</a>
+                <!-- <button class="btn mt-2" onclick="addToCart('Almonds', 350, 'almonds1.jpg')">Add to Cart</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ------ SALE SECTION ------- -->
+  <section class="sale py-5" id="chocolates" style="background-color:#fff;">
+    <div class="container text-center">
+
+      <!-- Banner -->
+      <div class="sale-banner d-flex align-items-center justify-content-center text-center">
+        <div class="banner-content">
+          <h2 class="fw-bold text-white">Luxury Gift Boxes, Now 20% OFF</h2>
+          <p class="text-white-50 fs-5 mt-2">Discover our luxurious gift boxes, customer favorites for a reason.</p>
+        </div>
+      </div>
+
+      <section class="giftpack py-5" id="giftpack" style="background-color:#fff;">
+        <div class="container text-center">
+          <div class="container">
+            <div class="row g-4">
+              <!-- .....Card 1 -->
+              <div class="giftpack col-12 col-sm-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm"
+                  onclick="openModal('Mixed Dry Fruits','A stylish dry fruit box filled with premium almonds, pistachios, cashews, walnuts, and sweet coated nuts. Ideal for gifting on celebrations and special occasions.','Prestige 5 (2600g) Rs.8500')">
+                  <img src="offer4.webp" class="card-img-top" alt="Mixed Dry Fruit Gift Pack">
+                  <div class="card-body">
+                    <h4 class="card-title text-center" style="color:#a0522d;"> Mixed Dry Fruits</h4>
+                    <p class="card-text text-muted">Dry fruit hamper showcases a rich assortment of crunchy nuts.
+                      <br>Prestige 5 (2600g)
+                    </p>
+                    <p class="price"><strike>Rs.9000</strike>- Rs.8,500</p>
+                    <a href="offers.html" class="btn">Show More</a>
+                  </div>
+                </div>
+              </div>
+              <!-- <!- ......card2 -->
+              <div class="giftpack col-12 col-sm-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm"
+                  onclick="openModal('Premium Hamper','An exquisite golden gift box filled with premium cashews, almonds, pistachios, walnuts, and gourmet nuts, crafted for those who appreciate luxury in every bite.','Prestige 7 (3360g) RS.9800')">
+                  <img src="offer5.jpg" class="card-img-top" alt="Premium Hamper">
+                  <div class="card-body">
+                    <h4 class="card-title text-center" style="color:#a0522d;">Premium Hamper</h4>
+                    <p class="card-text text-muted">A luxury golden box, perfect for gifting, rich in taste.
+                      <br>Prestige 7
+                      (3360g)
+                    </p>
+                    <p class="price"> <strike> Rs.10,500</strike>- Rs.9,800</p>
+                    <a href="offers.html" class="btn">Show More</a>
+                  </div>
+                </div>
+              </div>
+              <!-- ....Card 3 -->
+              <div class="giftpack col-12 col-sm-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm"
+                  onclick="openModal('Almond gift pack','Top-quality walnuts, cashews, pistachios and almonds. Perfect for elegant gifting and premium presentation.','Prestige 4(2250g) Rs 6700')">
+                  <img src="offer6.webp" class="card-img-top" alt="Almond Gift Pack">
+                  <div class="card-body">
+                    <h4 class="card-title text-center" style="color:#a0522d;">Almond gift pack</h4>
+                    <p class="card-text text-muted">Premium nuts. Simple, elegant, and ideal for any occasion.
+                      <br>Prestige
+                      4(2250g)
+                    </p>
+                    <p class="price"><strike> Rs.7,100</strike>- Rs.6,700</p>
+                    <a href="offers.html" class="btn">Show More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  </section>
+  </div>
+
+  <!-- ---- FOOTER ---- -->
+  <footer class="footer">
+    <div class="footer-container">
+
+      <div class="footer-col">
+        <b>
+          <h1>MaruDry Fruits</h1>
+        </b>
+        <p><b><i>"At MaruDry Fruits,we believe in connecting with our customers Contact us today,and let’s build a
+              fruitful relationship"</p></b></i>
+      </div>
+
+      <div class="footer-col">
+        <h1>Quick Links</h1>
+        <ul>
+          <li><a href="indexCopyCart.html"><b><i>Home</a></b></i></li>
+          <li><a href="aboutUs.html"><b><i>About Us</a></b></i></li>
+          <li><a href="offers.html"><b><i>Offers</a></b></i></li>
+          <li><a href="contactUs.html"><b><i>Contact Us</a></b></i></li>
+
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <b>
+          <h1>Contact Us</h1>
+        </b>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i><b>>123 Main Street, City, Country</li></b><i></i>
+          <li><i class="fas fa-phone"></i><b><i>+1 (234) 567-890</li></i></b>
+          <li><i class="fas fa-envelope"></i><b>support@MaruDryFruit.com</b> </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <b>
+          <h1>Follow Us</h1>
+        </b>
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2025 MaruDry Fruits. All Rights Reserved.
+    </div>
+
+  </footer>
+
+  <script>
+    //  ---- Sticky navbar on scroll ----
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+
+
+    // ---- REVIEWS ----
+    const reviews = document.querySelector(".reviews");
+    const reviewCards = document.querySelectorAll(".review-card");
+    let index = 0;
+    const total = reviewCards.length;
+
+    function showNextReview() {
+      index = (index + 1) % total;
+      reviews.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    let autoplay = setInterval(showNextReview, 4000);
+
+    const slider = document.getElementById("slider");
+    slider.addEventListener("mouseenter", () => clearInterval(autoplay));
+    slider.addEventListener("mouseleave", () => {
+      autoplay = setInterval(showNextReview, 4000);
+    });
+
+
+    function openModal(title, description, price) {
+      document.getElementById("modalTitle").innerText = title;
+      document.getElementById("modalDescription").innerText = description;
+      document.getElementById("modalPrice").innerText = price;
+
+      let modal = new bootstrap.Modal(document.getElementById("productModal"));
+      modal.show();
+    }
+
+  </script>
+
+  <!-- Toast Container -->
+  <div id="toastBox" style="position: fixed; bottom: 20px; right: 20px; z-index: 2000;">
+  </div>
+
+  <!-- PRODUCT MODAL -->
+  <div class="modal fade" id="productModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle" style="color:#a0522d; font-weight:bold;"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body text-muted">
+          <p id="modalDescription"></p>
+          <p id="modalPrice" style="color:#a0522d; font-weight:bold;"></p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script src="indexCopyCart.js"></script>
+
+</html>

@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MaruDryFruits - Gift Packs</title>
+  <link rel="icon" href="logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+  <style>
+    body {
+      background-color: #fffaf4;
+    }
+
+    .carousel-item img {
+      height: 420px;
+      object-fit: cover;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Butler";
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #fffaf5;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+  
+    /* ---- HEADER -- NAVBAR ---- */
+    header {
+      position: sticky;
+      top: 0;
+      background: #a0522d;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+      transition: background 0.3s, padding 0.3s;
+    }
+
+    header.scrolled {
+      background: #a0522d;
+      padding: 10px 50px;
+      backdrop-filter: blur(6px);
+    }
+
+    header h1 {
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1.8em;
+      font-weight: 700;
+    }
+
+    .icon {
+      padding: 23px;
+    }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: rgba(203, 180, 180, 0.95);
+    }
+
+    /* ---- Responsive Navbar ---- */
+    .navbar {
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background-color: #8b4513 !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-toggler {
+      filter: invert(1);
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+    .navbar-nav .nav-link {
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #f1c27d !important;
+    }
+
+    @media (max-width: 991px) {
+      .navbar-collapse {
+        background-color: #a0522d;
+        border-radius: 0 0 10px 10px;
+        padding: 10px 20px;
+      }
+    }
+
+    /* .card {
+      border: none;
+      border-radius: 10px;
+      transition: 0.3s;
+    } */
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .price {
+      font-weight: bold;
+      color: #a0522d;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+    }
+
+    /* .card img {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      height: 220px;
+      object-fit: cover;
+    } */
+
+
+    .btn {
+      background-color: #b45f06;
+      color: white;
+    }
+
+    .btn:hover {
+      background-color: #8a4604;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      color: #7b4f28;
+    }
+
+    h4 {
+      color: black;
+    }
+
+    .textt {
+      margin-bottom: 200px;
+    }
+
+    .giftpack-body {
+      text-align: center;
+    }
+
+    .giftpack {
+      transform: translateY(10px);
+      animation: slideUp 1s forwards;
+      display: flex;
+      justify-content: center;
+      box-shadow: 20px;
+    }
+
+    .giftpack .row {
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .giftpack-img {
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .giftpack h5 {
+      color: #a0522d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Butler";
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #fffaf5;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* ---- HEADER -- NAVBAR ---- */
+    header {
+      position: sticky;
+      top: 0;
+      background: #a0522d;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+      transition: background 0.3s, padding 0.3s;
+    }
+
+    header.scrolled {
+      background: #a0522d;
+      padding: 10px 50px;
+      backdrop-filter: blur(6px);
+    }
+
+    header h1 {
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1.8em;
+      font-weight: 700;
+    }
+
+    .icon {
+      padding: 23px;
+    }
+
+    .card-img-top {
+            border-radius: 10px;
+        }
+
+    /* ------- TOAST -------- */
+    .toast-message {
+      background-color: #a0522d;
+      color: white;
+      padding: 15px 20px;
+      margin-top: 10px;
+      border-radius: 8px;
+      min-width: 220px;
+      box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+      animation: fadeSlideIn 0.5s ease forwards, fadeOut 0.5s ease 2s forwards;
+      font-family: "Butler";
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+    }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      background: #a0522d;
+      color: #eee;
+      padding: 60px 0 20px;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 0 20px;
+    }
+
+    .footer-col {
+      flex: 1 1 220px;
+    }
+
+    .footer-col h1 {
+      color: #fff;
+      margin-bottom: 15px;
+      font-size: 18px;
+       text-align: left;
+    }
+
+    .footer-col p,
+    .footer-col ul li {
+      font-size: 14px;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-col ul li a {
+      color: #ccc;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+
+    .footer-col ul li a:hover {
+      color: #fff;
+    }
+
+    .social-links a {
+      display: inline-block;
+      height: 35px;
+      width: 35px;
+      background: #fff;
+      color: #a0522d;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 35px;
+      margin-right: 8px;
+      transition: 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: brown;
+      color: #fff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #e0e3e9;
+      margin-top: 30px;
+      padding-top: 15px;
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .textt{
+        padding: 20px;
+      }
+      .carHeading{
+        padding: 20px;
+        margin-top: 80px;
+      }
+      .social-links {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ---- NAV BAR ---- -->
+  <header id="navbar" class="navbar navbar-expand-lg sticky-top" style="background-color: #a0522d;">
+    <div class="container-fluid px-4">
+      <!-- Brand -->
+      <a class="navbar-brand fw-bold text-white" href="#home" style="font-size: 1.8em;">MaruDryFruits</a>
+
+      <!-- Hamburger Button -->
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapsible Menu -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link text-white fw-semibold" href="indexCopyCart.html">
+              <i class="fa-solid fa-house me-2"></i>Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white fw-semibold" href="dryFruits.html">
+              <i class="fa-solid fa-cart-shopping me-2"></i>Dry Fruits
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white fw-semibold" href="aboutUs.html">
+              <i class="fa-solid fa-seedling me-2"></i>About Us
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white fw-semibold" href="#offers">
+              <i class="fa-solid fa-gift me-2"></i>Offers
+            </a>
+          </li>
+          <!-- ---- cart ---- -->
+          <li class="nav-item position-relative">
+            <a class="nav-link text-white fw-semibold" href="cart.html" id="cartBtn">
+              <i class="fa-solid fa-cart-shopping me-2"></i>
+              Cart
+              <span id="cartCount"
+                class="badge rounded-pill bg-warning text-dark position-absolute top-0 start-100 translate-middle"
+                style="font-size: 0.75em;">0</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-white fw-semibold" href="contactUs.html">
+              <i class="fa-solid fa-map-location-dot me-2"></i>Contact Us
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+ 
+  <!-- Carousel -->
+  <div id="dryFruitCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="image1.webp" class="d-block w-100 img-fluid" alt="Premium Dry Fruit Gift Pack">
+        <div class="carousel-caption textt">
+          <h1 class="carHeading">Premium Dry Fruit Gift Packs</h1>
+          <h4>Discover our exclusive range of luxury dry fruit hampers; a perfect blend of health, taste, and tradition.
+          </h4>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="image2.webp" class="d-block w-100 img-fluid" alt="Festive Gift Box">
+      </div>
+      <div class="carousel-item">
+        <img src="image3.webp" class="d-block w-100 img-fluid" alt="Luxury Dry Fruit Hamper">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#dryFruitCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#dryFruitCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+  <!-- ---- giftpack SECTION ---- -->
+  <section class="giftpack py-5" id="giftpack" style="background-color:#fff;">
+    <div class="container text-center">
+      <h1> Dry Fruit Gift Box </h1>
+
+      <div class="container">
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="giftpack col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm"
+              onclick="openModal('Festive Mixed Dry Fruits',' Premium Taste • Elegant Packaging • Perfect for Gifting A stylish 4-compartment dry fruits gift box filled with premium almonds, cashews, raisins, and walnuts — fresh, natural, and perfect for gifting.','(Approx. 150g–165g per portion) price:Rs.3500')">
+              <img src="giftpack4.jpg" class="card-img-top" alt="Mixed Dry Fruit Gift Pack">
+              <div class="card-body">
+                <h4 class="card-title text-center" style="color:#a0522d;">Festive Mixed Dry Fruits</h4>
+                <p class="card-text text-muted">"A delightful mix of cashews, almonds, pistachios & raisins”
+                </p>
+                <p class="price">Rs 3500</p>
+                <button class="btn mt-2"
+                  onclick="event.stopPropagation(); addToCart('Festive Mixed Dry Fruits',3500, 'giftpack4.jpg')">Add to
+                  Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="giftpack col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm"
+              onclick="openModal('Luxury Celebration Hamper','This premium gift box includes high-quality almonds, cashews, pistachios, and walnuts — all freshly packed for maximum taste and purity. A perfect blend of health and flavor in one box.','(approx.100-150g per portion) Price: Rs. 1499')">
+              <img src="giftpack3.jpg" class="card-img-top" alt="Premium Hamper">
+              <div class="card-body">
+                <h4 class="card-title text-center" style="color:#a0522d;">Luxury Celebration hamper</h4>
+                <p class="card-text text-muted">“A premium hamper with exotic dry fruits and festive wrapping”</p>
+                <p class="price">Rs 1499</p>
+                <button class="btn mt-2"
+                  onclick="event.stopPropagation(); addToCart('Luxury Celebration hamper', 1499, 'giftpack3.jpg')">Add
+                  to Cart</button>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="giftpack col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm"
+              onclick="openModal('Royal Almond Delight','A luxurious 9-compartment dry fruits gift box filled with premium almonds, peanuts, pecans, and walnuts. Beautifully arranged in a golden frame, this elegant box is perfect for festive gifting, weddings, and corporate events.','(Each compartment approx 100g Total compartments: 9) price: Rs. 6500')">
+              <img src="giftbox1.jpg" class="card-img-top" alt="Almond Gift Pack">
+              <div class="card-body">
+                <h4 class="card-title text-center" style="color:#a0522d;">Royal Almond Delight</h4>
+                <p class="card-text text-muted">“Premium California almonds in a festive gift box.A perfect blend of
+                  taste”</p>
+                <p class="price">Rs 6500</p>
+                <button class="btn mt-2"
+                  onclick="event.stopPropagation(); addToCart('Royal Almond Delight', 6500, 'giftbox1.jpg')">Add to
+                  Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="giftpack py-5" id="giftpack" style="background-color:#fff;">
+    <div class="container text-center">
+      <h1>GIFTS SETS FOR EVERY OCCASIONS</h1>
+
+      <div class="container">
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="giftpack col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm"
+              onclick="openModal('Joyful Delights Basket','A premium selection of mixed nuts, pure honey, chia seeds, a sugar-free snack bar, and Beautifully arranged in a stylish basket with a silver-gold bow, it makes a perfect gift for any occasion.','price: Rs.4600')">
+              <img src="giftbasket1 (1).webp" class="card-img-top" alt="Joyful Delights Basket">
+              <div class="card-body">
+                <h4 class="card-title text-center" style="color:#a0522d;">Joyful Delights Basket</h4>
+                <p class="card-text text-muted">"Perfect for festive gifting, celebrations,this basket combines taste,
+                  health, and elegance in one beautiful package.”
+                </p>
+                <p class="price">Rs 4600</p>
+                <button class="btn mt-2"
+                  onclick="event.stopPropagation(); addToCart('Joyful Delights Basket', 4600, 'giftbasket1 (1).webp')">Add
+                  to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="giftpack col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm"
+              onclick="openModal('Luxury Delight Gift Pack','A premium maru Dry Fruits Gift Box filled with mixed nuts, gourmet snacks, olives, and beautifully wrapped treats. Presented in a stylish brown–gold box with an elegant ribbon, perfect for any occasion.','price: Rs.3800')">
+              <img src="giftbasket2.webp" class="card-img-top" alt="Luxury Delight Gift Pack">
+              <div class="card-body">
+                <h4 class="card-title text-center" style="color:#a0522d;">Luxury Delight Gift Pack</h4>
+                <p class="card-text text-muted">“premium mixed nuts,snacks, olives, gourmet items, and wrapped goodies.”
+                </p>
+                <p class="price">Rs 3800</p>
+                <button class="btn mt-2"
+                  onclick="event.stopPropagation(); addToCart('Luxury Delight Gift Pack', 3800, 'giftbasket2.webp')">Add
+                  to Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="giftpack col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm"
+              onclick="openModal('Royal Almond Delight','premium mixed nuts, healthy snacks, chocolates, olives, and chia seeds. Presented in an elegant round basket with a rich brown-gold ribbon bow, it’s the perfect choice for festive and premium gifting.','price: Rs.5000')">
+              <img src="giftbasket3.webp" class="card-img-top" alt="Royal Harvest Gift Set">
+              <div class="card-body">
+                <h4 class="card-title text-center" style="color:#a0522d;">Royal Almond Delight</h4>
+                <p class="card-text text-muted">“premium mixed nuts, healthy snacks, chocolates, and chia
+                  seeds.Presented in an elegant round basket.”</p>
+                <p class="price">Rs 5000</p>
+                <button class="btn mt-2"
+                  onclick="event.stopPropagation(); addToCart('Royal Almond Delight', 5000, 'giftbasket3.webp')">Add to
+                  Cart</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ------ sale section ------- -->
+  <section class="giftpack py-5" id="giftpack" style="background-color:#fff;">
+    <div class="container text-center">
+
+      <h1>Luxury Gift Boxes – Now 20% OFF</h1>
+
+      <div class="container">
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="giftpack col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm"
+              onclick="openModal('Happy Cravings Pack','A luxurious selection of walnuts, almonds, pistachios, cashews, and flavored nuts. Presented in an elegant golden box with a transparent lid, it’s a perfect choice for gifting and festive celebrations.','Prestige 6 (Window)(3000g) Rs 9500')">
+              <img src="offer1.webp" class="card-img-top" alt="Happy Cravings Pack ">
+              <div class="card-body">
+                <h4 class="card-title text-center" style="color:#a0522d;">Happy Cravings Pack</h4>
+                <p class="card-text text-muted">A luxurious selection of walnuts, almonds, pistachios, cashews, and
+                  flavored nuts. <br>Prestige 6 (Window)
+                  (3000g)
+                </p>
+                <p class="price">Rs.9500</p>
+                <button class="btn mt-2"
+                  onclick="event.stopPropagation(); addToCart('Happy Cravings Pack', 9500, 'offer1.webp')">Add to
+                  Cart</button>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="giftpack col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm"
+              onclick="openModal('Majestic Treats Gift Box','premium cashews, pistachios, almonds, walnuts, and flavored nuts. Presented in an elegant green gift box with a golden interior and clear lid, it’s perfect for festive gifting and special occasions.','Prestige 6 (3500g) Rs 10000')">
+              <img src="offer2.webp" class="card-img-top" alt="Majestic Treats Gift Box">
+              <div class="card-body">
+                <h4 class="card-title text-center" style="color:#a0522d;">Majestic Treats Gift Box</h4>
+                <p class="card-text text-muted">premium cashews, pistachios, almonds, walnuts, <br> Prestige 6
+                  (3500g)</p>
+                <p class="price">Rs.10000</p>
+                <button class="btn mt-2"
+                  onclick="event.stopPropagation(); addToCart('Majestic Treats Gift Box', 10000, 'offer2.webp')">Add to
+                  Cart</button>
+
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="giftpack col-12 col-sm-6 col-lg-3">
+            <!-- <div class="card h-100 border-0 shadow-sm"> -->
+            <div class="card h-100 border-0 shadow-sm"
+              onclick="openModal('Imperial Festive Collection','A premium Maru Dry Fruits Assorted Box featuring a rich selection of cashews, pistachios, almonds, and walnuts. Elegantly packed in a stylish purple gift box with a transparent lid, it’s perfect for festive gifting and special occasions.','“Prestige 4 (2250g) Rs.7500')">
+              <img src="offer3.webp" class="card-img-top" alt="Imperial Festive Collection">
+              <div class="card-body">
+                <h4 class="card-title text-center" style="color:#a0522d;">Imperial Festive Collection</h4>
+                <p class="card-text text-muted"> A premium dry fruit gift box with assorted nuts, <br>“Prestige 4
+                  (2250g)”</p>
+                <p class="price">Rs.7500</p>
+                <button class="btn mt-2"
+                  onclick="event.stopPropagation(); addToCart('Imperial Festive Collection', 7500, 'offer3.webp')">Add
+                  to Cart</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="giftpack py-5" id="giftpack" style="background-color:#fff;">
+    <div class="container text-center">
+      <div class="container">
+        <div class="row g-4">
+          <!-- .....Card 1 -->
+          <div class="giftpack col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm"
+              onclick="openModal('Mixed Dry Fruits','A stylish dry fruit box filled with premium almonds, pistachios, cashews, walnuts, and sweet coated nuts. Ideal for gifting on celebrations and special occasions.','Prestige 5 (2600g) Rs.8500')">
+              <img src="offer4.webp" class="card-img-top" alt="Mixed Dry Fruit Gift Pack">
+              <div class="card-body">
+                <h4 class="card-title text-center" style="color:#a0522d;"> Mixed Dry Fruits</h4>
+                <p class="card-text text-muted">dry fruit hamper showcases a rich assortment of crunchy cashews,
+                  pistachios, almonds, walnuts <br>Prestige 5 (2600g)
+                </p>
+                <p class="price"><strike>Rs.9000</strike>-Rs.8500</p>
+                <button class="btn mt-2"
+                  onclick="event.stopPropagation(); addToCart('Mixed Dry Fruits', 8500, 'offer4.webp')">Add to
+                  Cart</button>
+              </div>
+            </div>
+          </div>
+          <!-- <!- ......card2 -->
+          <div class="giftpack col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm"
+              onclick="openModal('premium hamper','An exquisite golden gift box filled with premium cashews, almonds, pistachios, walnuts, and gourmet nuts—crafted for those who appreciate luxury in every bite.','Prestige 7 (3360g) RS.9800')">
+              <img src="offer5.jpg" class="card-img-top" alt="Premium Hamper">
+              <div class="card-body">
+                <h4 class="card-title text-center" style="color:#a0522d;">Premium Hamper</h4>
+                <p class="card-text text-muted">A luxury golden box, perfect for gifting, rich in taste. <br>Prestige 7
+                  (3360g)</p>
+                <p class="price"> <strike> Rs.10,500</strike>- Rs.9,800</p>
+                <button class="btn mt-2"
+                  onclick="event.stopPropagation(); addToCart('Premium Hamper', 9800, 'offer5.jpg')">Add to
+                  Cart</button>
+              </div>
+            </div>
+          </div>
+          <!-- ....Card 3 -->
+          <div class="giftpack col-12 col-sm-6 col-lg-3">
+            <div class="card h-100 border-0 shadow-sm"
+              onclick="openModal('Almond gift pack','top-quality walnuts, cashews, pistachios and almonds. Perfect for elegant gifting and premium presentation.','Prestige 4(2250g) Rs 6700')">
+              <img src="offer6.webp" class="card-img-top" alt="Almond Gift Pack">
+              <div class="card-body">
+                <h4 class="card-title text-center" style="color:#a0522d;">Almond gift pack</h4>
+                <p class="card-text text-muted"> premium nuts. Simple, elegant, and ideal for any occasion. <br>Prestige
+                  4(2250g)</p>
+                <p class="price"><strike> Rs.7,100</strike>-Rs.6700</p>
+                <button class="btn mt-2"
+                  onclick="event.stopPropagation(); addToCart('Almond gift pack', 6700, 'offer6.webp')">Add to
+                  Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Bootstrap Modal -->
+  <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="productModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <p id="modalDesc"></p>
+          <p id="modalPrice" class="fw-bold" style="color:#a0522d;"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---- FOOTER ---- -->
+  <footer class="footer">
+    <div class="footer-container">
+
+      <div class="footer-col">
+        <b>
+          <h1>MaruDry Fruits</h1>
+        </b>
+        <p><b><i>"At MaruDry Fruits,we believe in connecting with our customers Contact us today,and let’s build a
+              fruitful relationship"</p></b></i>
+      </div>
+
+      <div class="footer-col">
+        <h1>Quick Links</h1>
+        <ul>
+          <li><a href="index.html"><b><i>Home</a></b></i></li>
+          <li><a href="about.html"><b><i>About Us</a></b></i></li>
+          <li><a href="offers.html"><b><i>Offers</a></b></i></li>
+          <li><a href="contact.html"><b><i>Contact Us</a></b></i></li>
+
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <b>
+          <h1>Contact Us</h1>
+        </b>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i><b>>123 Main Street, City, Country</li></b><i></i>
+          <li><i class="fas fa-phone"></i><b><i>+1 (234) 567-890</li></i></b>
+          <li><i class="fas fa-envelope"></i><b>support@MaruDryFruit.com</b> </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <b>
+          <h1>Follow Us</h1>
+        </b>
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      &copy; 2025 MaruDry Fruits. All Rights Reserved.
+    </div>
+
+  </footer>
+
+  <script>
+    //  ---- Sticky navbar on scroll ----
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+
+    // Open modal with product details
+    function openModal(name, desc, price) {
+      document.getElementById('productModalLabel').innerText = name;
+      document.getElementById('modalDesc').innerText = desc;
+      document.getElementById('modalPrice').innerText = price;
+
+      var myModal = new bootstrap.Modal(document.getElementById('productModal'));
+      myModal.show();
+    }
+  </script>
+
+  <script src="indexCopyCart.js"></script>
+
+  <!-- Toast Container -->
+  <div id="toastBox" style="position: fixed; bottom: 20px; right: 20px; z-index: 2000;">
+  </div>
+</body>
+
+</html>

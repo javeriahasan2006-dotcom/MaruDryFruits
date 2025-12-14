@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaruDryFruits - About Us</title>
+    <link rel="icon" href="logo.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <style>
+        /* === Global Styles === */
+        * {
+            font-family: "Butler";
+        }
+
+        body {
+            background-color: #fffaf3;
+            color: #3a2e1f;
+            margin: 0;
+            padding: 0;
+        }
+
+        .about-section {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 20px 40px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Butler";
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #fffaf5;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* ---- HEADER -- NAVBAR ---- */
+        header {
+            position: sticky;
+            top: 0;
+            background: #a0522d;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 60px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            transition: background 0.3s, padding 0.3s;
+        }
+
+        header.scrolled {
+            background: #a0522d;
+            padding: 10px 50px;
+            backdrop-filter: blur(6px);
+        }
+
+        header h1 {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+
+        .icon {
+            padding: 23px;
+        }
+
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: rgba(203, 180, 180, 0.95);
+        }
+
+        /* ---- Responsive Navbar ---- */
+        .navbar {
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: #8b4513 !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-toggler {
+            filter: invert(1);
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-nav .nav-link {
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f1c27d !important;
+        }
+
+
+
+        /* === Text Section === */
+        h1 {
+            text-align: center;
+            color: #a0522d;
+        }
+
+        h2 {
+            color: #a0522d;
+            margin-top: 40px;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: #a0522d;
+            font-weight: bold;
+        }
+
+        /* === Horizontal Product Card === */
+        .horizontal-card {
+            display: flex;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 965px;
+            margin: 40px auto;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .horizontal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .horizontal-card .image {
+            flex: 1;
+        }
+
+        .horizontal-card .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .horizontal-card .content {
+            flex: 1.2;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .horizontal-card h2 {
+            color: #a0522d;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .horizontal-card p {
+            color: #555;
+            line-height: 1.7;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* ---- Cardss---- */
+
+
+        .cardss-body {
+            text-align: center;
+        }
+
+        .cardss {
+            transform: translateY(10px);
+            animation: slideUp 1s forwards;
+            display: flex;
+            justify-content: center;
+            box-shadow: 20px;
+        }
+
+        .cardss .row {
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .cardss-img {
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .cardss h5 {
+            color: #a0522d;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+           /* ---- FOOTER ---- */
+    .footer {
+      background: #a0522d;
+      color: #eee;
+      padding: 60px 0 20px;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 0 20px;
+    }
+
+    .footer-col {
+      flex: 1 1 220px;
+    }
+
+    .footer-col h1 {
+      color: #fff;
+      margin-bottom: 15px;
+      font-size: 18px;
+       text-align: left;
+    }
+
+    .footer-col p, .footer-col ul li {
+      font-size: 14px;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-col ul li a {
+      color: #ccc;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+
+    .footer-col ul li a:hover {
+      color: #fff;
+    }
+
+    .social-links a {
+      display: inline-block;
+      height: 35px;
+      width: 35px;
+      background: #fff;
+      color: #a0522d;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 35px;
+      margin-right: 8px;
+      transition: 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background:brown;
+      color: #fff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #e0e3e9;
+      margin-top: 30px;
+      padding-top: 15px;
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .social-links {
+        justify-content: center;
+      }
+    }
+
+        /* === Responsive === */
+        @media (max-width: 700px) {
+            .horizontal-card {
+                flex-direction: column;
+            }
+
+            .horizontal-card .content {
+                text-align: center;
+                padding: 20px;
+            }
+
+            @media (max-width: 991px) {
+                .navbar-collapse {
+                    background-color: #a0522d;
+                    border-radius: 0 0 10px 10px;
+                    padding: 10px 20px;
+                }
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ---- NAV BAR ---- -->
+    <header id="navbar" class="navbar navbar-expand-lg sticky-top" style="background-color: #a0522d;">
+        <div class="container-fluid px-4">
+            <!-- Brand -->
+            <a class="navbar-brand fw-bold text-white" href="#home" style="font-size: 1.8em;">MaruDryFruits</a>
+
+            <!-- Hamburger Button -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Collapsible Menu -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-semibold" href="indexCopyCart.html">
+                            <i class="fa-solid fa-house me-2"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-semibold" href="dryFruits.html">
+                            <i class="fa-solid fa-cart-shopping me-2"></i>Dry Fruits
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-semibold" href="#about">
+                            <i class="fa-solid fa-seedling me-2"></i>About Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-semibold" href="offers.html">
+                            <i class="fa-solid fa-gift me-2"></i>Offers
+                        </a>
+                    </li>
+                    <!-- ---- cart ---- -->
+                    <li class="nav-item position-relative">
+                        <a class="nav-link text-white fw-semibold" href="cart.html" id="cartBtn">
+                            <i class="fa-solid fa-cart-shopping me-2"></i>
+                            Cart
+                            <span id="cartCount"
+                                class="badge rounded-pill bg-warning text-dark position-absolute top-0 start-100 translate-middle"
+                                style="font-size: 0.75em;">0</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-semibold" href="contactUs.html">
+                            <i class="fa-solid fa-map-location-dot me-2"></i>Contact Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- === About Us Section === -->
+    <div class="about-section">
+        <h1>About Us</h1>
+        <p>Welcome to MaruDryFruits, your premier destination for exquisite dry fruits and gourmet treats! For more
+            than 40 years, MaruDryFruits has been synonymous with premium quality and trust. We offer a wide range of
+            nuts, dry fruits, chocolates, honey, dates, and snacks, all carefully sourced and hand-picked to ensure they
+            meet the standard we have set! We pride ourselves on our commitment to excellence and customer satisfaction,
+            making us a trusted choice for quality products & your gifting needs.</p>
+    </div>
+    <!-- === Second Card (Horizontal Style) === -->
+    <div class="horizontal-card">
+        <div class="image">
+            <img class="img-fluid" src="our-story.webp" alt="">
+        </div>
+        <div class="content">
+            <h2>OUR STORY</h2>
+            <p>From Humble Beginnings to a Legacy of Excellence!
+                Our story began with a simple dream: to share the natural goodness and rich flavors of premium dry
+                fruits with our community. Today, that dream has grown into a trusted name known nationwide for
+                excellence and quality. Every product we offer is carefully selected to ensure it meets our high
+                standards of freshness and taste, just as if we were serving it to our own family.
+                Our journey has been shaped by the trust of our valued customers and the joy of sharing our passion for
+                premium dry fruits and snacks. As we move forward, we remain devoted to our core values of quality,
+                integrity, and customer satisfaction. Discover our story and join us in celebrating a tradition of
+                excellence.
+            </p>
+        </div>
+    </div>
+    <!-- -----third card-----(horizontal style)----->
+    <div class="horizontal-card">
+        <div class="image">
+            <img class="img-fluid" src="/who-we-are.webp" alt="">
+        </div>
+        <div class="content">
+            <h2>WHO WE ARE</h2>
+            <p>With a legacy built on unparalleled quality and a commitment to excellence, we have become a trusted name
+                nationwide for delivering the finest selection of dry fruits, nuts, chocolates, honey, and snacks.All
+                our products are meticulously sourced to ensure that each offering meets the highest standards of
+                freshness and quality. From our premium dried fruits and an assortment of nuts to our luxurious imported
+                dates and artisanal chocolates, every item in our collection reflects our dedication to exceptional
+                taste and superior craftsmanship.
+            </p>
+        </div>
+    </div>
+    <!-----------cardsss------->
+    <section class="cardss py-5" id="cardss" style="background-color:#fff;">
+        <div class="container text-center">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- Card 1 -->
+                    <div class="cardss col-12 col-sm-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="special-gift.webp" class="card-img-top" alt="Exquisite Gifts">
+                            <div class="card-body">
+                                <h4 class="card-title text-center" style="color:#a0522d;">Exquisite Gifts</h4>
+                                <p class="card-text text-muted">Create cherished memories with our exquisite gifts. Find
+                                    a variety of special gifts for your most cherished moments with our premium
+                                    selection of dry fruits, chocolates, and delightful gourmet treats.</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="cardss col-12 col-sm-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="specialities.webp" class="card-img-top" alt="Specialities">
+                            <div class="card-body">
+                                <h4 class="card-title text-center" style="color:#a0522d;">Specialities</h4>
+                                <p class="card-text text-muted">Explore our signature specialities crafted to delight
+                                    every palate, featuring a range of artisanal treats, confections, and gourmet
+                                    creations designed to elevate your celebrations with unforgettable flavor and
+                                    elegance.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="cardss col-12 col-sm-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <img src="celebration.webp" class="card-img-top" alt="Celebrations">
+                            <div class="card-body">
+                                <h4 class="card-title text-center" style="color:#a0522d;">Celebrations</h4>
+                                <p class="card-text text-muted"> Make us a part of your special day!
+                                    Celebrate your special occasions with the finest dry fruits and gourmet treats from
+                                    MaruDryFruits. We’re here to make your festivities delicious and delightful.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="horizontal-card">
+        <div class="image">
+            <img src="/we-are-open.webp" alt="">
+        </div>
+        <div class="content">
+            <h1>WE ARE OPEN</h1>
+            <h2>Service Hours</h2>
+            <p> <strong>Mon - Sun</strong>
+                <br>
+                <strong>11:00 AM - 11:45 PM</strong>
+                <br>
+                <i>We’re Here to Make Your Gifting Experience Great</i>
+            </p>
+        </div>
+    </div>
+
+    <!-- ---- FOOTER ---- -->
+  <footer class="footer">
+    <div class="footer-container">
+
+      <div class="footer-col">
+        <b>
+          <h1>MaruDry Fruits</h1>
+        </b>
+        <p><b><i>"At MaruDry Fruits,we believe in connecting with our customers Contact us today,and let’s build a
+              fruitful relationship"</p></b></i>
+      </div>
+
+      <div class="footer-col">
+        <h1>Quick Links</h1>
+        <ul>
+          <li><a href="indexCopyCart.html"><b><i>Home</a></b></i></li>
+          <li><a href="aboutUs.html"><b><i>About Us</a></b></i></li>
+          <li><a href="offers.html"><b><i>Offers</a></b></i></li>
+          <li><a href="contactUs.html"><b><i>Contact Us</a></b></i></li>
+
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <b>
+          <h1>Contact Us</h1>
+        </b>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i><b>>123 Main Street, City, Country</li></b><i></i>
+          <li><i class="fas fa-phone"></i><b><i>+1 (234) 567-890</li></i></b>
+          <li><i class="fas fa-envelope"></i><b>support@MaruDryFruit.com</b> </li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <b>
+          <h1>Follow Us</h1>
+        </b>
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+    </div>
+    
+    <div class="footer-bottom">
+      &copy; 2025 MaruDry Fruits. All Rights Reserved.
+    </div>
+
+  </footer>
+
+  <script>
+        //  ---- Sticky navbar on scroll ----
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+
+    </script>
+    <script src="indexCopyCart.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>
